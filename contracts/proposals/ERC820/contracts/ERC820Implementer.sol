@@ -8,15 +8,15 @@ contract ERC820Registry {
 }
 
 contract ERC820Implementer {
-    ERC820Registry erc820Registry = ERC820Registry(0xbe78655dff872d22b95ae366fb3477d977328ade);
+    ERC820Registry erc820Registry = ERC820Registry(0xBe78655dfF872D22B95AE366Fb3477D977328Ade);
 
     function setInterfaceImplementation(string interfaceLabel, address implementation) internal {
-        bytes32 interfaceHash = keccak256(interfaceLabel);
+        bytes32 interfaceHash = keccak256(bytes(interfaceLabel));
         erc820Registry.setInterfaceImplementer(this, interfaceHash, implementation);
     }
 
     function interfaceAddr(address addr, string interfaceLabel) internal constant returns(address) {
-        bytes32 interfaceHash = keccak256(interfaceLabel);
+        bytes32 interfaceHash = keccak256(bytes(interfaceLabel));
         return erc820Registry.getInterfaceImplementer(addr, interfaceHash);
     }
 
