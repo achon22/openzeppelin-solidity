@@ -9,7 +9,7 @@ contract ERC820Registry {
 
 contract ERC820Implementer {
     // the real address is 0xBe78655dfF872D22B95AE366Fb3477D977328Ade
-    ERC820Registry erc820Registry = ERC820Registry(0xf38062f6deaa6fa7410bf6a661850b82c3d55361);
+    ERC820Registry erc820Registry = ERC820Registry(0xd5e8b564ff8cf9a59cf5fc122910fdcabde2ff00);
 
     function setInterfaceImplementation(string interfaceLabel, address implementation) internal {
         bytes32 interfaceHash = keccak256(bytes(interfaceLabel));

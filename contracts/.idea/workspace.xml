@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ee2686b6-5a49-482d-845f-231a654f62ce" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="ERC777BasicToken.sol" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proposals/ERC777/contracts/ERC777BasicToken.sol">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-782">
+              <caret line="9" column="59" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ERC777TokensRecipient.sol" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/proposals/ERC777/contracts/ERC777TokensRecipient.sol">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="truffle.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proposals/ERC777/truffle.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="1_initial_migration.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proposals/ERC777/migrations/1_initial_migration.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2_deploy_ERC777.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proposals/ERC777/migrations/2_deploy_ERC777.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="50" selection-start-column="50" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>mAllowed</find>
+      <find>mAll</find>
+      <find>isAuthorized</find>
+      <find>operators</find>
+      <find>merc</find>
+      <find>balances</find>
+      <find>balance</find>
+      <find>isOperatorFor</find>
+      <find>@notice</find>
+      <find>balanceOf</find>
+      <find>burn(</find>
+      <find>burn</find>
+      <find>operatorSend)</find>
+      <find>safemath</find>
+      <find>setInterface</find>
+      <find>operatorSend</find>
+      <find>ERC777TokensSender</find>
+      <find>authorizeOper</find>
+      <find>authorizeO</find>
+      <find>revokeO</find>
+      <find>tokensReceived(</find>
+      <find>Sent(</find>
+      <find>ERC777TokensRecipient</find>
+      <find>tokensToSend(</find>
+      <find>tokensToS</find>
+      <find>minted(</find>
+      <find>Minted(</find>
+      <find>Burned(</find>
+      <find>_userData</find>
+      <find>ExampleTokensSender</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>@dev</replace>
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/proposals/ERC777/contracts/examples/ERC20Token.sol" />
+        <option value="$PROJECT_DIR$/proposals/ERC777/contracts/examples/ERC777ERC20BaseToken.sol" />
+        <option value="$PROJECT_DIR$/proposals/ERC777/contracts/Migrations.sol" />
+        <option value="$PROJECT_DIR$/proposals/ERC777/contracts/ERC777Token.sol" />
+        <option value="$PROJECT_DIR$/proposals/ERC777/contracts/ERC777TokenInterface.sol" />
+        <option value="$PROJECT_DIR$/proposals/ERC820/contracts/ERC820Implementer.sol" />
+        <option value="$PROJECT_DIR$/proposals/ERC777/contracts/ERC777TokensRecipientInterface.sol" />
+        <option value="$PROJECT_DIR$/proposals/ERC777/contracts/ERC777BasicToken.sol" />
+        <option value="$PROJECT_DIR$/proposals/ERC777/contracts/examples/ExampleTokensRecipient.sol" />
+        <option value="$PROJECT_DIR$/proposals/ERC777/contracts/ERC777TokensSender.sol" />
+        <option value="$PROJECT_DIR$/proposals/ERC777/contracts/examples/ReferenceToken.sol" />
+        <option value="$PROJECT_DIR$/proposals/ERC777/contracts/examples/ExampleTokensSender.sol" />
+        <option value="$PROJECT_DIR$/proposals/ERC777/migrations/1_initial_migration.js" />
+        <option value="$PROJECT_DIR$/proposals/ERC777/migrations/2_deploy_ERC777.js" />
+        <option value="$PROJECT_DIR$/proposals/ERC777/contracts/ERC777TokensRecipient.sol" />
+        <option value="$PROJECT_DIR$/proposals/ERC777/truffle.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/proposals/ERC777/node_modules" />
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/proposals/ERC777/package.json" />
+      <path value="$PROJECT_DIR$/proposals/ERC820/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1542" />
+    <option name="height" value="998" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="contracts" type="b2602c69:ProjectViewProjectNode" />
+              <item name="contracts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="contracts" type="b2602c69:ProjectViewProjectNode" />
+              <item name="contracts" type="462c0819:PsiDirectoryNode" />
+              <item name="proposals" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="contracts" type="b2602c69:ProjectViewProjectNode" />
+              <item name="contracts" type="462c0819:PsiDirectoryNode" />
+              <item name="proposals" type="462c0819:PsiDirectoryNode" />
+              <item name="ERC777" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="contracts" type="b2602c69:ProjectViewProjectNode" />
+              <item name="contracts" type="462c0819:PsiDirectoryNode" />
+              <item name="proposals" type="462c0819:PsiDirectoryNode" />
+              <item name="ERC777" type="462c0819:PsiDirectoryNode" />
+              <item name="contracts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="contracts" type="b2602c69:ProjectViewProjectNode" />
+              <item name="contracts" type="462c0819:PsiDirectoryNode" />
+              <item name="proposals" type="462c0819:PsiDirectoryNode" />
+              <item name="ERC777" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ee2686b6-5a49-482d-845f-231a654f62ce" name="Default" comment="" />
+      <created>1533425444365</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1533425444365</updated>
+      <workItem from="1533425446091" duration="4812000" />
+      <workItem from="1533517381850" duration="5745000" />
+      <workItem from="1533809763038" duration="1665000" />
+      <workItem from="1534280592962" duration="2277000" />
+      <workItem from="1534308756826" duration="127000" />
+      <workItem from="1534470220020" duration="583000" />
+      <workItem from="1534543397347" duration="2837000" />
+      <workItem from="1534739248573" duration="2372000" />
+      <workItem from="1534977405379" duration="3943000" />
+      <workItem from="1535151810584" duration="3320000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="27681000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1542" height="998" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info id="Image Layers" order="7" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Designer" order="3" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18158236" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info id="Learn" order="2" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32858595" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/truffle-config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proposals/ERC820/contracts/ERC820Implementer.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="93" selection-start-line="10" selection-start-column="93" selection-end-line="10" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/contracts/ERC777BasicToken.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2835">
+          <caret line="189" column="71" selection-start-line="189" selection-start-column="71" selection-end-line="189" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/contracts/ERC777TokensSender.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/math/SafeMath.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proposals/ERC820/contracts/ERC820Implementer.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proposals/ERC820/contracts/ERC820Registry.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="84" column="20" selection-start-line="84" selection-start-column="20" selection-end-line="84" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/contracts/examples/ERC777ERC20BaseToken.sol" />
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/contracts/examples/ExampleTokensRecipient.sol" />
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/contracts/examples/ExampleTokensSender.sol" />
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/contracts/examples/ReferenceToken.sol" />
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/contracts/ERC777BasicToken.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2835">
+          <caret line="189" column="71" lean-forward="true" selection-start-line="189" selection-start-column="71" selection-end-line="189" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/contracts/ERC777TokensSender.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/math/SafeMath.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proposals/ERC820/contracts/ERC820Implementer.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proposals/ERC820/contracts/ERC820Registry.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="84" column="20" lean-forward="true" selection-start-line="84" selection-start-column="20" selection-end-line="84" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/contracts/examples/ERC777ERC20BaseToken.sol" />
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/contracts/examples/ExampleTokensRecipient.sol" />
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/contracts/examples/ExampleTokensSender.sol" />
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/contracts/examples/ReferenceToken.sol" />
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/contracts/ERC777BasicToken.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1575">
+          <caret line="105" column="28" lean-forward="true" selection-start-line="105" selection-start-column="28" selection-end-line="105" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proposals/ERC820/contracts/ERC820Implementer.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/contracts/examples/ERC777ERC20BaseToken.sol" />
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/contracts/examples/ReferenceToken.sol" />
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/node_modules/openzeppelin-solidity/contracts/ownership/Ownable.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ownership/Ownable.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/math/SafeMath.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proposals/ERC820/contracts/ERC820Registry.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-125">
+          <caret line="84" column="20" selection-start-line="84" selection-start-column="20" selection-end-line="84" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/node_modules/openzeppelin-solidity/contracts/MerkleProof.sol">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/contracts/Migrations.sol" />
+    <entry file="file://$PROJECT_DIR$/proposals/ERC820/contracts/ERC820ImplementerInterface.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/contracts/examples/ERC777ERC20BaseToken.sol" />
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/contracts/examples/ERC20Token.sol" />
+    <entry file="file://$PROJECT_DIR$/mocks/DetailedERC20Mock.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="33" lean-forward="true" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/token/ERC20/ERC20.sol">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/token/ERC20/StandardToken.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/token/ERC20/BasicToken.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/contracts/examples/ExampleTokensRecipient.sol" />
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/contracts/examples/ReferenceToken.sol" />
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/contracts/examples/ExampleTokensSender.sol" />
+    <entry file="file://$PROJECT_DIR$/mocks/AllowanceCrowdsaleImpl.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mocks/BurnableTokenMock.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proposals/ERC820/contracts/ERC820Implementer.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="46" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/truffle-config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/contracts/ERC777TokensSender.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/contracts/ERC777Token.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/migrations/1_initial_migration.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/migrations/2_deploy_ERC777.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="50" selection-start-column="50" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/contracts/ERC777BasicToken.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-782">
+          <caret line="9" column="59" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/truffle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proposals/ERC777/contracts/ERC777TokensRecipient.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

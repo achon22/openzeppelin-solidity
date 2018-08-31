@@ -4,10 +4,11 @@ import { ERC777Token } from "./ERC777Token.sol";
 import { ERC777TokensRecipient } from "./ERC777TokensRecipient.sol";
 import { ERC777TokensSender } from "./ERC777TokensSender.sol";
 import { ERC820Implementer } from "../ERC820/ERC820Implementer.sol";
+import { Ownable } from "../../ownership/Ownable.sol";
 import { SafeMath } from "../../math/SafeMath.sol";
 
 
-contract ERC777BasicToken is ERC777Token, ERC820Implementer {
+contract ERC777BasicToken is ERC777Token, ERC820Implementer, Ownable {
     using SafeMath for uint256;
 
     // Token name
@@ -30,14 +31,20 @@ contract ERC777BasicToken is ERC777Token, ERC820Implementer {
     mapping(address => mapping(address => bool)) internal operators;
 
     address[] internal defaultOperators_;
+    mapping(address => bool) internal isDefaultOperator;
+    mapping(address => mapping(address => bool)) internal revokedDefaultOperator;
 
-    constructor(string _name, string _symbol, uint256 _granularity) public {
+
+    constructor(string _name, string _symbol, uint256 _granularity, address[] _defaultOperators) public {
         require(_granularity >= 1);
         name_ = _name;
         symbol_ = _symbol;
-        totalSupply_ = 1000000000000000000000;
+        totalSupply_ = 0;
         granularity_ = _granularity;
-
+        defaultOperators_ = _defaultOperators;
+        for (uint i = 0; i < defaultOperators_.length; i++) {
+            isDefaultOperator[defaultOperators_[i]] = true;
+        }
         // register the interface to conform to ERC777 via ERC820
         setInterfaceImplementation("ERC777Token", this);
     }
@@ -180,7 +187,11 @@ contract ERC777BasicToken is ERC777Token, ERC820Implementer {
     /// @param _operator The address to authorize as an operator
     function authorizeOperator(address _operator) external {
         require(_operator != msg.sender);
-        operators[_operator][msg.sender] = true;
+        if (isDefaultOperator[_operator]) {
+            revokedDefaultOperator[_operator][msg.sender] = false;
+        } else {
+            operators[_operator][msg.sender] = true;
+        }
         emit AuthorizedOperator(_operator, msg.sender);
     }
 
@@ -188,7 +199,11 @@ contract ERC777BasicToken is ERC777Token, ERC820Implementer {
     /// @param _operator The address to revoke operator privilege from
     function revokeOperator(address _operator) external {
         require(_operator != msg.sender);
-        operators[_operator][msg.sender] = false;
+        if (isDefaultOperator[_operator]) {
+            revokedDefaultOperator[_operator][msg.sender] = true;
+        } else {
+            operators[_operator][msg.sender] = false;
+        }
         emit RevokedOperator(_operator, msg.sender);
     }
 
@@ -197,7 +212,9 @@ contract ERC777BasicToken is ERC777Token, ERC820Implementer {
     /// @param _tokenHolder address which holds the tokens to be managed
     /// @return `true` if `_operator` is authorized for `_tokenHolder`
     function isOperatorFor(address _operator, address _tokenHolder) public view returns (bool) {
-        return _operator == _tokenHolder || operators[_operator][_tokenHolder];
+        return (_operator == _tokenHolder
+        || operators[_operator][_tokenHolder]
+        || (isDefaultOperator[_operator] && !revokedDefaultOperator[_operator][_tokenHolder]));
     }
 
     /// @dev Send `_amount` of tokens on behalf of the address `from` to the address `to`.
@@ -209,6 +226,40 @@ contract ERC777BasicToken is ERC777Token, ERC820Implementer {
     function operatorSend(address _from, address _to, uint256 _amount, bytes _userData, bytes _operatorData) external {
         require(isOperatorFor(msg.sender, _from));
         sendTokens(_from, _to, _amount, _userData, msg.sender, _operatorData, true);
+    }
+
+    /* -- Mint And Burn Functions (not part of the ERC777 standard, only the Events/tokensReceived call are) -- */
+    //
+    /// @notice Generates `_amount` tokens to be assigned to `_tokenHolder`
+    ///  Sample mint function to showcase the use of the `Minted` event and the logic to notify the recipient.
+    /// @param _tokenHolder The address that will be assigned the new tokens
+    /// @param _amount The quantity of tokens generated
+    /// @param _operatorData Data that will be passed to the recipient as a first transfer
+    function mint(address _tokenHolder, uint256 _amount, bytes _operatorData) public onlyOwner {
+        require(_amount > 0);
+        requireMultiple(_amount);
+        totalSupply_ = totalSupply_.add(_amount);
+        tokenBalances[_tokenHolder] = tokenBalances[_tokenHolder].add(_amount);
+
+        callRecipient(msg.sender, 0x0, _tokenHolder, _amount, "", _operatorData, true);
+        emit Minted(msg.sender, _tokenHolder, _amount, "", _operatorData);
+    }
+
+    /// @notice Burns `_amount` tokens from `_tokenHolder`
+    ///  Sample burn function to showcase the use of the `Burned` event.
+    /// @param _tokenHolder The address that will lose the tokens
+    /// @param _amount The quantity of tokens to burn
+    function burn(address _tokenHolder, uint256 _amount, bytes _userData, bytes _operatorData) external onlyOwner {
+        requireMultiple(_amount);
+
+        callSender(msg.sender, _tokenHolder, 0x0, _amount, _userData, _operatorData);
+
+        require(balanceOf(_tokenHolder) >= _amount);
+
+        tokenBalances[_tokenHolder] = tokenBalances[_tokenHolder].sub(_amount);
+        totalSupply_ = totalSupply_.sub(_amount);
+
+        emit Burned(msg.sender, _tokenHolder, _amount, _operatorData);
     }
 
     /* -- Helper Functions -- */

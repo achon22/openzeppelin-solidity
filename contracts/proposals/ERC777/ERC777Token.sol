@@ -15,7 +15,7 @@ contract ERC777Token {
     function send(address to, uint256 amount, bytes data) external;
     function operatorSend(address from, address to, uint256 amount, bytes data, bytes operatorData) external;
 
-//    function burn(uint256 amount, bytes data) external;
+    function burn(address _tokenHolder, uint256 _amount, bytes _userData, bytes _operatorData) external;
 //    function operatorBurn(address from, uint256 amount, bytes data, bytes operatorData) external;
 
     event Sent(

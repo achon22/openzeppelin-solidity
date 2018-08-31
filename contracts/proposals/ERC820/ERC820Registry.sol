@@ -24,7 +24,7 @@ contract ERC820Registry {
     /// @dev Query the hash of an interface given a name
     /// @param interfaceName Name of the interfce
     function interfaceHash(string interfaceName) public pure returns(bytes32) {
-        return keccak256(interfaceName);
+        return keccak256(abi.encodePacked(interfaceName));
     }
 
     /// @dev GetManager
@@ -46,7 +46,7 @@ contract ERC820Registry {
         address addr = _addr == 0 ? msg.sender : _addr;
         require(getManager(addr) == msg.sender);
         managers[addr] = newManager == addr ? 0 : newManager;
-        ManagerChanged(addr, newManager);
+        emit ManagerChanged(addr, newManager);
     }
 
     /// @dev Query if an address implements an interface and thru which contract
@@ -82,7 +82,7 @@ contract ERC820Registry {
                         == ERC820_ACCEPT_MAGIC);
         }
         interfaces[addr][iHash] = implementer;
-        InterfaceImplementerSet(addr, iHash, implementer);
+        emit InterfaceImplementerSet(addr, iHash, implementer);
     }
 
 
