@@ -148,11 +148,84 @@ contract('ERC777 - BasicToken', accounts => {
             await assertBalance(erc777BasicToken, accounts[2], 10);
         });
     });
+
+    describe('basic operator checks', function () {
+        it(`verify isOperatorFor function for default operator`, async function () {
+            await erc777BasicToken.isOperatorFor(accounts[2], accounts[6]);
+        });
+
+        it(`verify isOperatorFor function for newly set operator`, async function () {
+            await erc777BasicToken.authorizeOperator(accounts[4], { from: accounts[0], gas: 300000 });
+            await erc777BasicToken.isOperatorFor(accounts[4], accounts[0]);
+        });
+
+        it(`verify that a  ${accounts[4].slice(0,8)} cannot set himself as an operator`, async function () {
+            await assertRevert(erc777BasicToken.authorizeOperator(accounts[4], { from: accounts[4], gas: 300000 }));
+        });
+
+
+    });
+
+    describe('operatorSend checks', function () {
+
+        beforeEach(async function () {
+            erc777BasicToken = await ERC777BasicTokenMock.new(_name, _symbol, _granularity, _defaultOperators, { from: _owner });
+            await erc777BasicToken.mint(accounts[0], ether(10), "", { from: _owner });
+            await erc777BasicToken.mint(accounts[1], ether(10), "", { from: _owner });
+            await erc777BasicToken.mint(accounts[2], ether(10), "", { from: _owner });
+        });
+
+        it(`test that default operator ${accounts[1].slice(0,8)} can send 3 ${_symbol} from ${accounts[2].slice(0, 8)} with empty data`, async function () {
+            await assertTotalSupply(erc777BasicToken, 30);
+            await assertBalance(erc777BasicToken, accounts[0], 10);
+            await assertBalance(erc777BasicToken, accounts[1], 10);
+            await assertBalance(erc777BasicToken, accounts[2], 10);
+            await erc777BasicToken.operatorSend(accounts[2], accounts[4], ether(3), "", "", { from: accounts[1] });
+            await assertTotalSupply(erc777BasicToken, 30);
+            await assertBalance(erc777BasicToken, accounts[1], 10);
+            await assertBalance(erc777BasicToken, accounts[2], 7);
+            await assertBalance(erc777BasicToken, accounts[4], 3);
+        });
+
+        it(`test that a non-operator  ${accounts[4].slice(0,8)} cannot move ${_symbol} from ${accounts[2].slice(0, 8)} `, async function () {
+            await assertTotalSupply(erc777BasicToken, 30);
+            await assertBalance(erc777BasicToken, accounts[0], 10);
+            await assertBalance(erc777BasicToken, accounts[1], 10);
+            await assertBalance(erc777BasicToken, accounts[2], 10);
+            await assertRevert(erc777BasicToken.operatorSend(accounts[2], accounts[4], ether(3), "", "", { from: accounts[4] }));
+            await assertTotalSupply(erc777BasicToken, 30);
+            await assertBalance(erc777BasicToken, accounts[0], 10);
+            await assertBalance(erc777BasicToken, accounts[1], 10);
+            await assertBalance(erc777BasicToken, accounts[2], 10);
+        });
+
+        it(`test that operator ${accounts[4].slice(0,8)} can send 3 ${_symbol} from ${accounts[0].slice(0, 8)}`, async function () {
+            await assertTotalSupply(erc777BasicToken, 30);
+            await assertBalance(erc777BasicToken, accounts[0], 10);
+            await assertBalance(erc777BasicToken, accounts[1], 10);
+            await assertBalance(erc777BasicToken, accounts[2], 10);
+            await erc777BasicToken.authorizeOperator(accounts[4], { from: accounts[0], gas: 300000 });
+            await erc777BasicToken.operatorSend(accounts[0], accounts[4], ether(3), "", "", { from: accounts[4] });
+            await assertTotalSupply(erc777BasicToken, 30);
+            await assertBalance(erc777BasicToken, accounts[0], 7);
+            await assertBalance(erc777BasicToken, accounts[1], 10);
+            await assertBalance(erc777BasicToken, accounts[2], 10);
+            await assertBalance(erc777BasicToken, accounts[4], 3);
+        });
+
+        it(`${accounts[0].slice(0,8)} can operatorSend 3 ${_symbol} from itself`, async function () {
+            await assertTotalSupply(erc777BasicToken, 30);
+            await assertBalance(erc777BasicToken, accounts[0], 10);
+            await assertBalance(erc777BasicToken, accounts[1], 10);
+            await assertBalance(erc777BasicToken, accounts[2], 10);
+            await erc777BasicToken.operatorSend(accounts[0], accounts[4], ether(3), "", "", { from: accounts[0] });
+            await assertTotalSupply(erc777BasicToken, 30);
+            await assertBalance(erc777BasicToken, accounts[0], 7);
+            await assertBalance(erc777BasicToken, accounts[1], 10);
+            await assertBalance(erc777BasicToken, accounts[2], 10);
+            await assertBalance(erc777BasicToken, accounts[4], 3);
+        });
+
+    });
 });
 
-/**
-
-
-
-
- */
