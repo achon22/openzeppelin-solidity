@@ -34,6 +34,13 @@ contract ERC777BasicToken is ERC777Token, ERC820Implementer, Ownable {
     mapping(address => bool) internal isDefaultOperator;
     mapping(address => mapping(address => bool)) internal revokedDefaultOperator;
 
+    // ERC-20 compatible mappings
+    mapping(address => mapping(address => bool)) internal mAuthorized;
+    mapping(address => mapping(address => uint256)) internal mAllowed;
+
+    // ERC-20 events
+    event Transfer(address indexed from, address indexed to, uint256 amount);
+    event Approval(address indexed owner, address indexed spender, uint256 amount);
 
     constructor(string _name, string _symbol, uint256 _granularity, address[] _defaultOperators) public {
         require(_granularity >= 1);
@@ -103,7 +110,7 @@ contract ERC777BasicToken is ERC777Token, ERC820Implementer, Ownable {
         bytes _operatorData,
         bool _preventLocking
     )
-    internal
+    public
     {
         // require that the amount being transferred is a multiple of granularity
         requireMultiple(_amount);
@@ -249,7 +256,7 @@ contract ERC777BasicToken is ERC777Token, ERC820Implementer, Ownable {
     ///  Sample burn function to showcase the use of the `Burned` event.
     /// @param _tokenHolder The address that will lose the tokens
     /// @param _amount The quantity of tokens to burn
-    function burn(address _tokenHolder, uint256 _amount, bytes _userData, bytes _operatorData) external onlyOwner {
+    function operatorBurn(address _tokenHolder, uint256 _amount, bytes _userData, bytes _operatorData) public {
         requireMultiple(_amount);
 
         callSender(msg.sender, _tokenHolder, 0x0, _amount, _userData, _operatorData);
@@ -260,6 +267,63 @@ contract ERC777BasicToken is ERC777Token, ERC820Implementer, Ownable {
         totalSupply_ = totalSupply_.sub(_amount);
 
         emit Burned(msg.sender, _tokenHolder, _amount, _operatorData);
+    }
+
+    /// @notice Burns `amount` tokens from msg.sender
+    /// @param amount The quantity of tokens to burn
+    /// @param data the userData to send to be passed into the sender tokensToSend user data
+    function burn(uint256 amount, bytes data) external {
+        operatorBurn(msg.sender, amount, data, "");
+    }
+
+    /// @notice ERC20 backwards compatible transfer.
+    /// @param _to The address of the recipient
+    /// @param _amount The number of tokens to be transferred
+    /// @return `true`, if the transfer can't be done, it should fail.
+    function transfer(address _to, uint256 _amount) public returns (bool success) {
+        sendTokens(msg.sender, _to, _amount, "", msg.sender, "", false);
+        emit Transfer(msg.sender, _to, _amount);
+        return true;
+    }
+
+    /// @notice ERC20 backwards compatible transferFrom.
+    /// @param _from The address holding the tokens being transferred
+    /// @param _to The address of the recipient
+    /// @param _amount The number of tokens to be transferred
+    /// @return `true`, if the transfer can't be done, it should fail.
+    function transferFrom(address _from, address _to, uint256 _amount) public returns (bool) {
+        require(_amount <= mAllowed[_from][msg.sender]);
+        mAllowed[_from][msg.sender] = mAllowed[_from][msg.sender].sub(_amount);
+        sendTokens(_from, _to, _amount, "", msg.sender, "", false);
+        emit Transfer(_from, _to, _amount);
+        return true;
+    }
+
+    /// @notice ERC20 backwards compatible approve.
+    ///  `msg.sender` approves `_spender` to spend `_amount` tokens on its behalf.
+    /// @param _spender The address of the account able to transfer the tokens
+    /// @param _amount The number of tokens to be approved for transfer
+    /// @return `true`, if the approve can't be done, it should fail.
+    function approve(address _spender, uint256 _amount) public returns (bool success) {
+        mAllowed[msg.sender][_spender] = _amount;
+        emit Approval(msg.sender, _spender, _amount);
+        return true;
+    }
+
+    /// @notice ERC20 backwards compatible allowance.
+    ///  This function makes it easy to read the `mAllowed[]` map
+    /// @param _owner The address of the account that owns the token
+    /// @param _spender The address of the account able to transfer the tokens
+    /// @return Amount of remaining tokens of _owner that _spender is allowed
+    ///  to spend
+    function allowance(address _owner, address _spender) public view returns (uint256 remaining) {
+        return mAllowed[_owner][_spender];
+    }
+
+    /// @notice For Backwards compatibility with ERC-20
+    /// @return The decimals of the token. Forced to 18 in ERC777.
+    function decimals() public pure returns (uint8) {
+        return uint8(18);
     }
 
     /* -- Helper Functions -- */

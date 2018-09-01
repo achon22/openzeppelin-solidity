@@ -21,5 +21,5 @@ contract('BurnableToken', accounts => {
     await this.token.mint(_owner, ether(_amountEthMinted), 'operator data', { from: _owner });
   });
 
-  shouldBehaveLikeBurnableToken(_owner, _amountEthMinted);
+  shouldBehaveLikeBurnableToken(_owner, accounts, _amountEthMinted);
 });
